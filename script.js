@@ -98,22 +98,22 @@ function storeValue() {
 
 function operate() {
     storeValue()
-    let total = 0;
+    let total = new Float32Array;
     for (let i = 0; i < operationValue.length; i += 2) {
-        total = parseInt(operationValue[i]);
+        total = parseFloat(operationValue[i]);
         if (operationValue[i + 1] === "+") {
-            total += parseInt(operationValue[i + 2]);
+            total += parseFloat(operationValue[i + 2]);
         } else if (operationValue[i + 1] === "-") {
-            total -= parseInt(operationValue[i + 2]);
+            total -= parseFloat(operationValue[i + 2]);
         } else if (operationValue[i + 1] === "×") {
-            total *= parseInt(operationValue[i + 2]);
+            total *= parseFloat(operationValue[i + 2]);
         } else if (operationValue[i + 1] === "÷") {
-            total /= parseInt(operationValue[i + 2]);
+            total /= parseFloat(operationValue[i + 2]);
         }
         operationValue.splice(i + 2, 1, total);
     }
     operationValue = new Array();
     let result = new Array();
-    result.push(total);
+    result.push(total.toPrecision(10));
     return result;
 }
