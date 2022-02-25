@@ -114,6 +114,6 @@ function operate() {
     }
     operationValue = new Array();
     let result = new Array();
-    result.push(total.toPrecision(10));
+    result.push(total);
     return result;
 }
